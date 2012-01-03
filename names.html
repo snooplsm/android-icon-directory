@@ -1,0 +1,211 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>Android Menu Item Icons</title>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<style type="text/css" media="screen">
+			#controls {
+				width: 150px;
+				float: left;
+			}
+			#grid-container {
+				float: right;
+				left: 150px;
+				top: 0;
+				position: fixed
+			}
+			ul#grid li {
+				list-style: none outside;
+				float: left;
+				margin-right: 20px;
+				margin-bottom: 20px;
+				width: 48px;
+				height: 48px;
+				text-align: center;
+			}
+				ul#grid li img {
+					vertical-align: middle;
+				}
+				ul#grid li.d {
+					background: black;
+				}
+			textarea {
+				width:150px;
+				height:50px;
+			}
+			body {
+				font-size: 0.6em;
+				font-type: Arial;
+			}
+	</style>
+	
+	<script type="text/javascript">
+	var versions = {
+		"3":"Cupcake 1.5",
+		"4":"1.6 Donut",
+		"7":"2.1 Eclair",
+		"8":"2.2 Froyo",
+		"9":"2.3.1 Gingerbread",
+		"10":"2.3.2 Gingerbread",
+		"11":"Honeycomb 3.1",
+		"12":"Honeycomb 3.2",
+		"13":"Honeycomb 3.3",
+		"14":"4.0 Ice Cream Sandwich",
+		"15":"4.0 Ice Cream Sandwich"
+	};
+	var drawables = {"1": "drawable-large-mdpi", "2": "drawable-land-mdpi", "3": "drawable-en-ldpi", "4": "drawable-mdpi", "5": "drawable-land-ldpi", "6": "drawable-xlarge-xhdpi", "7": "drawable-xlarge-hdpi", "8": "drawable-sw600dp-mdpi", "9": "drawable-en-hdpi", "10": "drawable-land", "11": "drawable-sw600dp-xhdpi", "12": "drawable-xhdpi", "13": "drawable-hdpi", "14": "drawable-nodpi", "15": "drawable-sw600dp-hdpi", "16": "drawable-land-xhdpi", "17": "drawable-en-mdpi", "18": "drawable-land-hdpi", "19": "drawable", "20": "drawable-xlarge-mdpi", "21": "drawable-ldpi"};
+	var data = {"ic_menu_settings_holo_light": {"11": [4, 13], "12": [4, 13], "13": [4, 13], "14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_info_details": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_view": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_moreoverflow_focused_holo_light": {"11": [4, 13], "12": [4, 13], "13": [4, 13], "14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_block": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_find": {"11": [4, 13], "12": [4, 13], "13": [4, 13], "14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_week": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_add": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_my_calendar": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_paste_holo_light": {"12": [4, 13], "13": [4, 13], "14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_help_holo_light": {"11": [4, 13], "12": [4, 13], "13": [4, 13], "14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_share_holo_light": {"12": [4, 13], "13": [4, 13], "14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_mapmode": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_search_holo_light": {"11": [4, 13], "12": [4, 13], "13": [4, 13], "14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_sort_alphabetically": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_archive": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_report_image": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_moreoverflow_focused_holo_dark": {"11": [4, 13], "12": [4, 13], "13": [4, 13], "14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_star": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_gallery": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_cut_holo_light": {"12": [4, 13], "13": [4, 13], "14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_slideshow": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_search": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_cc": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_share": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_goto": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_always_landscape_portrait": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_upload": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_attachment": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_camera": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_set_as": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_search_holo_dark": {"12": [4, 13], "13": [4, 13], "14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_allfriends": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_day": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_back": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_crop": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_month": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_call": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_revert": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_compass": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_cut_light": {"11": [4, 13]}, "ic_menu_directions": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_copy_holo_dark": {"12": [4, 13], "13": [4, 13], "14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_clear_playlist": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_edit": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_agenda": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_zoom": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_invite": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_more": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_btn_add": {"11": [4, 13], "12": [4, 13], "13": [4, 13], "14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_preferences": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_home": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_cut_dark": {"11": [4, 13]}, "ic_menu_start_conversation": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_chat_dashboard": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_myplaces": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_help": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_copy": {"14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_manage": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_find_holo_dark": {"12": [4, 13], "13": [4, 13], "14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_send": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_login": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_rotate": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_compose": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_cut_holo_dark": {"12": [4, 13], "13": [4, 13], "14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_account_list": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_emoticons": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_moreoverflow_normal_holo_light": {"11": [13, 4], "12": [13, 4], "13": [13, 4], "14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_play_clip": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_save": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_recent_history": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_paste": {"14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_share_holo_dark": {"12": [4, 13], "13": [4, 13], "14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_moreoverflow_normal_holo_dark": {"11": [13, 4], "12": [13, 4], "13": [13, 4], "14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_selectall_holo_dark": {"14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_upload_you_tube": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_forward": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_copy_light": {"11": [4, 13]}, "ic_menu_today": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_refresh": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_copy_dark": {"11": [4, 13]}, "ic_menu_stop": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_paste_light": {"11": [4, 13]}, "ic_menu_end_conversation": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_copy_holo_light": {"12": [4, 13], "13": [4, 13], "14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_moreoverflow": {"14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_paste_dark": {"11": [4, 13]}, "ic_menu_friendslist": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_selectall_holo_light": {"14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_paste_holo_dark": {"12": [4, 13], "13": [4, 13], "14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_sort_by_size": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_mark": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_mylocation": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_find_holo_light": {"12": [4, 13], "13": [4, 13], "14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_notifications": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_blocked_user": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_cut": {"14": [4, 13, 12], "15": [4, 13, 12]}, "ic_menu_close_clear_cancel": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}, "ic_menu_delete": {"3": [19], "4": [19], "7": [4, 13], "8": [4, 13], "10": [21, 4, 13], "11": [4, 21, 13], "12": [4, 21, 13], "13": [4, 21, 13], "14": [4, 21, 13, 12], "15": [4, 21, 13, 12]}};
+	</script>
+	
+	<script type="text/javascript">
+	$(document).ready(function() {
+		$("#grid li").css("cursor","pointer");
+		$("#controls").hide();
+		$("#grid li").click(function() {						
+			$("#controls").hide();
+			name = $(this).find("img").attr('alt');
+			rname = $(this).find("img").attr('title');
+			$("#rname").text(rname);
+			$("#name").val(name);
+			$("#available").empty();
+			for(platform in data[rname]) {
+				$("#available").append(versions[platform]+"<br/>");
+				var types = ["drawable-hdpi","drawable-mdpi","drawable-ldpi"];
+				var toUse;
+				for(var k in types) {
+					var s = data[rname][types[k]]
+					if(s!=null) {
+						toUse = s;
+						break;
+					}
+				}
+				var img = "/Users/rgravener/android-sdk-macosx/platforms/android-"+platform+"/data/res/"+drawables[toUse]+"/"+rname+".png";
+				$("#available").append("<img src='"+img+"'/><br/>");
+			}
+			$("#controls").fadeIn();
+		});
+	});
+	</script>
+</head>
+
+<body>
+
+	<div id="container">
+		<div id="controls">
+			<span id="rname">Name</span>
+			<textarea type="text" id="name"></textarea>
+			available for
+
+			<div id="available"></div>
+		</div>
+		<div id="grid-container">
+			<ul id="grid">
+						<li><img alt="android.R.drawable.ic_menu_settings_holo_light" title="ic_menu_settings_holo_light" src="/Users/rgravener/android-sdk-macosx/platforms/android-11/data/res/drawable-mdpi/ic_menu_settings_holo_light.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li><img alt="android.R.drawable.ic_menu_attachment" title="ic_menu_attachment" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_attachment.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_camera" title="ic_menu_camera" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_camera.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_directions" title="ic_menu_directions" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_directions.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_find_holo_light" title="ic_menu_find_holo_light" src="/Users/rgravener/android-sdk-macosx/platforms/android-12/data/res/drawable-mdpi/ic_menu_find_holo_light.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li><img alt="android.R.drawable.ic_menu_view" title="ic_menu_view" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_view.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_week" title="ic_menu_week" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_week.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_star" title="ic_menu_star" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_star.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_share_holo_light" title="ic_menu_share_holo_light" src="/Users/rgravener/android-sdk-macosx/platforms/android-12/data/res/drawable-mdpi/ic_menu_share_holo_light.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li><img alt="android.R.drawable.ic_menu_call" title="ic_menu_call" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_call.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_myplaces" title="ic_menu_myplaces" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_myplaces.png" width="48" height="48"></li>
+		<li class="d"><img alt="android.R.drawable.ic_menu_find_holo_dark" title="ic_menu_find_holo_dark" src="/Users/rgravener/android-sdk-macosx/platforms/android-12/data/res/drawable-mdpi/ic_menu_find_holo_dark.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li class="d"><img alt="android.R.drawable.ic_menu_selectall_holo_dark" title="ic_menu_selectall_holo_dark" src="/Users/rgravener/android-sdk-macosx/platforms/android-14/data/res/drawable-mdpi/ic_menu_selectall_holo_dark.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li><img alt="android.R.drawable.ic_menu_compose" title="ic_menu_compose" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_compose.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_add" title="ic_menu_add" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_add.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_btn_add" title="ic_menu_btn_add" src="/Users/rgravener/android-sdk-macosx/platforms/android-11/data/res/drawable-mdpi/ic_menu_btn_add.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li><img alt="android.R.drawable.ic_menu_help" title="ic_menu_help" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_help.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_copy" title="ic_menu_copy" src="/Users/rgravener/android-sdk-macosx/platforms/android-14/data/res/drawable-mdpi/ic_menu_copy.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li class="d"><img alt="android.R.drawable.ic_menu_search_holo_dark" title="ic_menu_search_holo_dark" src="/Users/rgravener/android-sdk-macosx/platforms/android-12/data/res/drawable-mdpi/ic_menu_search_holo_dark.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li><img alt="android.R.drawable.ic_menu_play_clip" title="ic_menu_play_clip" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_play_clip.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_copy_light" title="ic_menu_copy_light" src="/Users/rgravener/android-sdk-macosx/platforms/android-11/data/res/drawable-mdpi/ic_menu_copy_light.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li><img alt="android.R.drawable.ic_menu_mark" title="ic_menu_mark" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_mark.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_moreoverflow_normal_holo_light" title="ic_menu_moreoverflow_normal_holo_light" src="/Users/rgravener/android-sdk-macosx/platforms/android-11/data/res/drawable-hdpi/ic_menu_moreoverflow_normal_holo_light.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_allfriends" title="ic_menu_allfriends" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_allfriends.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_help_holo_light" title="ic_menu_help_holo_light" src="/Users/rgravener/android-sdk-macosx/platforms/android-11/data/res/drawable-mdpi/ic_menu_help_holo_light.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li><img alt="android.R.drawable.ic_menu_set_as" title="ic_menu_set_as" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_set_as.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_back" title="ic_menu_back" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_back.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_compass" title="ic_menu_compass" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_compass.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_zoom" title="ic_menu_zoom" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_zoom.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_manage" title="ic_menu_manage" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_manage.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_emoticons" title="ic_menu_emoticons" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_emoticons.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_today" title="ic_menu_today" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_today.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_close_clear_cancel" title="ic_menu_close_clear_cancel" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_close_clear_cancel.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_archive" title="ic_menu_archive" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_archive.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_slideshow" title="ic_menu_slideshow" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_slideshow.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_home" title="ic_menu_home" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_home.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_edit" title="ic_menu_edit" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_edit.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_send" title="ic_menu_send" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_send.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_moreoverflow" title="ic_menu_moreoverflow" src="/Users/rgravener/android-sdk-macosx/platforms/android-14/data/res/drawable-mdpi/ic_menu_moreoverflow.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li><img alt="android.R.drawable.ic_menu_selectall_holo_light" title="ic_menu_selectall_holo_light" src="/Users/rgravener/android-sdk-macosx/platforms/android-14/data/res/drawable-mdpi/ic_menu_selectall_holo_light.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li><img alt="android.R.drawable.ic_menu_mylocation" title="ic_menu_mylocation" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_mylocation.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_crop" title="ic_menu_crop" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_crop.png" width="48" height="48"></li>
+		<li class="d"><img alt="android.R.drawable.ic_menu_share_holo_dark" title="ic_menu_share_holo_dark" src="/Users/rgravener/android-sdk-macosx/platforms/android-12/data/res/drawable-mdpi/ic_menu_share_holo_dark.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li><img alt="android.R.drawable.ic_menu_forward" title="ic_menu_forward" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_forward.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_copy_holo_light" title="ic_menu_copy_holo_light" src="/Users/rgravener/android-sdk-macosx/platforms/android-12/data/res/drawable-mdpi/ic_menu_copy_holo_light.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li class="d"><img alt="android.R.drawable.ic_menu_paste_holo_dark" title="ic_menu_paste_holo_dark" src="/Users/rgravener/android-sdk-macosx/platforms/android-12/data/res/drawable-mdpi/ic_menu_paste_holo_dark.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li><img alt="android.R.drawable.ic_menu_account_list" title="ic_menu_account_list" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_account_list.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_notifications" title="ic_menu_notifications" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_notifications.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_stop" title="ic_menu_stop" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_stop.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_paste_light" title="ic_menu_paste_light" src="/Users/rgravener/android-sdk-macosx/platforms/android-11/data/res/drawable-mdpi/ic_menu_paste_light.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li class="d"><img alt="android.R.drawable.ic_menu_paste_dark" title="ic_menu_paste_dark" src="/Users/rgravener/android-sdk-macosx/platforms/android-11/data/res/drawable-mdpi/ic_menu_paste_dark.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li><img alt="android.R.drawable.ic_menu_cut" title="ic_menu_cut" src="/Users/rgravener/android-sdk-macosx/platforms/android-14/data/res/drawable-mdpi/ic_menu_cut.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li><img alt="android.R.drawable.ic_menu_info_details" title="ic_menu_info_details" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_info_details.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_report_image" title="ic_menu_report_image" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_report_image.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_cc" title="ic_menu_cc" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_cc.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_day" title="ic_menu_day" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_day.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_friendslist" title="ic_menu_friendslist" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_friendslist.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_find" title="ic_menu_find" src="/Users/rgravener/android-sdk-macosx/platforms/android-11/data/res/drawable-mdpi/ic_menu_find.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li><img alt="android.R.drawable.ic_menu_cut_light" title="ic_menu_cut_light" src="/Users/rgravener/android-sdk-macosx/platforms/android-11/data/res/drawable-mdpi/ic_menu_cut_light.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li><img alt="android.R.drawable.ic_menu_block" title="ic_menu_block" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_block.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_paste_holo_light" title="ic_menu_paste_holo_light" src="/Users/rgravener/android-sdk-macosx/platforms/android-12/data/res/drawable-mdpi/ic_menu_paste_holo_light.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li><img alt="android.R.drawable.ic_menu_sort_alphabetically" title="ic_menu_sort_alphabetically" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_sort_alphabetically.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_upload" title="ic_menu_upload" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_upload.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_moreoverflow_focused_holo_light" title="ic_menu_moreoverflow_focused_holo_light" src="/Users/rgravener/android-sdk-macosx/platforms/android-11/data/res/drawable-mdpi/ic_menu_moreoverflow_focused_holo_light.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li><img alt="android.R.drawable.ic_menu_agenda" title="ic_menu_agenda" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_agenda.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_invite" title="ic_menu_invite" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_invite.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_login" title="ic_menu_login" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_login.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_rotate" title="ic_menu_rotate" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_rotate.png" width="48" height="48"></li>
+		<li class="d"><img alt="android.R.drawable.ic_menu_cut_holo_dark" title="ic_menu_cut_holo_dark" src="/Users/rgravener/android-sdk-macosx/platforms/android-12/data/res/drawable-mdpi/ic_menu_cut_holo_dark.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li><img alt="android.R.drawable.ic_menu_sort_by_size" title="ic_menu_sort_by_size" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_sort_by_size.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_blocked_user" title="ic_menu_blocked_user" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_blocked_user.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_my_calendar" title="ic_menu_my_calendar" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_my_calendar.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_gallery" title="ic_menu_gallery" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_gallery.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_goto" title="ic_menu_goto" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_goto.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_search_holo_light" title="ic_menu_search_holo_light" src="/Users/rgravener/android-sdk-macosx/platforms/android-11/data/res/drawable-mdpi/ic_menu_search_holo_light.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li><img alt="android.R.drawable.ic_menu_search" title="ic_menu_search" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_search.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_always_landscape_portrait" title="ic_menu_always_landscape_portrait" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_always_landscape_portrait.png" width="48" height="48"></li>
+		<li class="d"><img alt="android.R.drawable.ic_menu_copy_holo_dark" title="ic_menu_copy_holo_dark" src="/Users/rgravener/android-sdk-macosx/platforms/android-12/data/res/drawable-mdpi/ic_menu_copy_holo_dark.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li class="d"><img alt="android.R.drawable.ic_menu_cut_dark" title="ic_menu_cut_dark" src="/Users/rgravener/android-sdk-macosx/platforms/android-11/data/res/drawable-mdpi/ic_menu_cut_dark.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li class="d"><img alt="android.R.drawable.ic_menu_moreoverflow_normal_holo_dark" title="ic_menu_moreoverflow_normal_holo_dark" src="/Users/rgravener/android-sdk-macosx/platforms/android-11/data/res/drawable-hdpi/ic_menu_moreoverflow_normal_holo_dark.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_recent_history" title="ic_menu_recent_history" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_recent_history.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_save" title="ic_menu_save" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_save.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_more" title="ic_menu_more" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_more.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_delete" title="ic_menu_delete" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_delete.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_mapmode" title="ic_menu_mapmode" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_mapmode.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_preferences" title="ic_menu_preferences" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_preferences.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_cut_holo_light" title="ic_menu_cut_holo_light" src="/Users/rgravener/android-sdk-macosx/platforms/android-12/data/res/drawable-mdpi/ic_menu_cut_holo_light.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li class="d"><img alt="android.R.drawable.ic_menu_moreoverflow_focused_holo_dark" title="ic_menu_moreoverflow_focused_holo_dark" src="/Users/rgravener/android-sdk-macosx/platforms/android-11/data/res/drawable-mdpi/ic_menu_moreoverflow_focused_holo_dark.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li><img alt="android.R.drawable.ic_menu_share" title="ic_menu_share" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_share.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_revert" title="ic_menu_revert" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_revert.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_upload_you_tube" title="ic_menu_upload_you_tube" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_upload_you_tube.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_refresh" title="ic_menu_refresh" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_refresh.png" width="48" height="48"></li>
+		<li class="d"><img alt="android.R.drawable.ic_menu_copy_dark" title="ic_menu_copy_dark" src="/Users/rgravener/android-sdk-macosx/platforms/android-11/data/res/drawable-mdpi/ic_menu_copy_dark.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li><img alt="android.R.drawable.ic_menu_paste" title="ic_menu_paste" src="/Users/rgravener/android-sdk-macosx/platforms/android-14/data/res/drawable-mdpi/ic_menu_paste.png" width="32" height="32" style="padding-top: 8px;"></li>
+		<li><img alt="android.R.drawable.ic_menu_start_conversation" title="ic_menu_start_conversation" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_start_conversation.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_chat_dashboard" title="ic_menu_chat_dashboard" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_chat_dashboard.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_month" title="ic_menu_month" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_month.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_clear_playlist" title="ic_menu_clear_playlist" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_clear_playlist.png" width="48" height="48"></li>
+		<li><img alt="android.R.drawable.ic_menu_end_conversation" title="ic_menu_end_conversation" src="/Users/rgravener/android-sdk-macosx/platforms/android-3/data/res/drawable/ic_menu_end_conversation.png" width="48" height="48"></li>
+
+			</ul>
+		</div>
+	</div>
+</body>
+</html>
